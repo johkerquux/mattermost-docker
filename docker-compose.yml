@@ -5,9 +5,9 @@ services:
       - ./volumes/db/var/lib/postgresql/data:/var/lib/docker/postgresql/data
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=changethis
-      - POSTGRES_DB=mattermost
+      - POSTGRES_USER="admin"
+      - POSTGRES_PASSWORD="changethis"
+      - POSTGRES_DB="mattermost"
   app:
     volumes:
       - ./volumes/app/mattermost/config:/mattermost/config:rw
@@ -17,9 +17,9 @@ services:
       - ./volumes/app/mattermost/client-plugins:/mattermost/client/plugins:rw
       - /etc/localtime:/etc/localtime:ro
     environment:
-      - MM_USERNAME=admin
-      - MM_PASSWORD=changethis
-      - MM_DBNAME=mattermost
+      - MM_USERNAME="admin"
+      - MM_PASSWORD="changethis"
+      - MM_DBNAME="mattermost"
   web:
     volumes:
       - ./volumes/web/cert:/cert:ro
