@@ -3,7 +3,6 @@ version: "3"
 services:
 
   db:
-    build: db
     volumes:
       - ./volumes/db/var/lib/postgresql/data:/var/lib/docker/postgresql/data
       - /etc/localtime:/etc/localtime:ro
@@ -18,13 +17,6 @@ services:
     #  - AWS_REGION=us-east-1
 
   app:
-    build:
-      context: app
-      # uncomment following lines for team edition or change UID/GID
-      # args:
-      #   - edition=team
-      #   - PUID=1000
-      #   - PGID=1000
     volumes:
       - ./volumes/app/mattermost/config:/mattermost/config:rw
       - ./volumes/app/mattermost/data:/mattermost/data:rw
@@ -41,7 +33,6 @@ services:
       #- MM_CONFIG=/mattermost/config/config.json
 
   web:
-    build: web
     volumes:
       # This directory must have cert files if you want to enable SSL
       - ./volumes/web/cert:/cert:ro
